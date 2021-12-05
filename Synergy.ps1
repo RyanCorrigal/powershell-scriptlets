@@ -1,5 +1,5 @@
-Start-Service Synergy
-Start-Process -FilePath "C:\Program Files\Synergy\synergys.exe"
-# do some shit
-Wait-Process -Name -Id
-Stop-Service Synergy
+Start-Service -Name Synergy
+Start-Process -FilePath "C:\Program Files\Synergy\synergy.exe"
+$SynergyProcess = Get-Process synergy
+Wait-Process -Id $SynergyProcess.Id
+Stop-Service -Name Synergy
