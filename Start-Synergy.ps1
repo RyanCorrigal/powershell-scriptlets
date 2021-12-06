@@ -1,0 +1,1 @@
+Start-Process powershell -verb runas -ArgumentList "-WindowStyle Hidden -File C:\Users\Ryan\Development\Source\powershell-scriptlets\Synergy-Wrapper.ps1"
