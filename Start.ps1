@@ -1,4 +1,10 @@
-param ([Parameter(Mandatory)]$ScriptToExecute, $ArgumentList, $WindowStyle="Hidden")
-Write-Host("run with args: -WindowStyle $($WindowStyle) -File $($ScriptToExecute)")
-Start-Process powershell -verb runas -ArgumentList "-WindowStyle $($WindowStyle) -File $($ScriptToExecute)"
-Read-Host("all done.")
+param (
+    #[Parameter(Mandatory)]
+    $InstalledLocation = "C:\Users\Ryan\Development\Source\powershell-scriptlets", 
+
+    #[Parameter(Mandatory)]
+    #[ValidateSet('Hidden', 'Minimized', 'Maximized', 'Normal')]
+    $WindowStyle = "Hidden"
+)
+
+Start-Process powershell.exe -verb runas -ArgumentList "-WindowStyle $($WindowStyle) -File $($InstalledLocation)\Start-Elevated.ps1 -WorkingDirectory $($InstalledLocation)"
