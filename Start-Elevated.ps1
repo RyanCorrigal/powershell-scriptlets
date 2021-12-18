@@ -1,4 +1,3 @@
-Synergy
 Function Show-Tooltip {
     param (
         [Parameter(Mandatory)]
@@ -22,7 +21,7 @@ Function Show-Tooltip {
     $balmsg.ShowBalloonTip($Duration)
 }
 
-function Synergy {
+function Start-Synergy {
     Start-ServiceWrapper "synergy" "C:\Program Files\Synergy\synergy.exe" "Synergy" "Synergy"
 }
 
@@ -47,3 +46,5 @@ function Start-ServiceWrapper {
     Stop-Service -Name $ServiceName
     Show-ToolTip "$($FriendlyServiceName) service stopped.`n`n(Enjoy your reclaimed system resources)"
 }
+
+Start-Synergy
